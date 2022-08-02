@@ -19,9 +19,7 @@ def get_stock_history(ticker):
     data_api_url = f"https://globalhistorical.xignite.com/v3/xGlobalHistorical.json/GetCashDividendHistory?IdentifierType=Symbol&Identifier={ticker}&StartDate=01/01/1800&EndDate=12/30/2022&IdentifierAsOfDate=&CorporateActionsAdjusted=true&_token={token['_token']}&_token_userid={token['_token_userid']}"
     print(data_api_url)
 
-    dividend_history = requests.request("GET", data_api_url).json()
-
-    return dividend_history
+    return requests.request("GET", data_api_url).json()
 
 def get_stocks_from_file(path):
     with open(path, "r") as file:
